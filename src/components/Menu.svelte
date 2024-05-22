@@ -1,21 +1,15 @@
 <script>
-  import Button from "./Button.svelte";
+    import Button from "./Button.svelte";
+  
+  export let data;
 
-export let data;
-function test(event, item){
-    item.expanded = event.detail;
-    data = data;
-}
-</script>
+  
+  function test(event, item){
+      item.expanded = event.detail;
+      data = data;
+  }
+  </script>
 
-<!-- <p on:click={toggleOpen}>
-    {#if expanded}
-    -
-    {:else}
-    +
-    {/if}
-    <span>{data['name']}</span>
-</p> -->
 <ul>
     {#each data as item}
     <li>
@@ -25,7 +19,7 @@ function test(event, item){
                 <ul>
                 <li>
                     <svelte:self data={item.children}>
-                        <Button item={item}/>
+                        <Button item={item} />
                     </svelte:self>
                 </li>
                 </ul>
@@ -34,3 +28,18 @@ function test(event, item){
     </li>
     {/each}
 </ul>
+
+<style>
+
+    ul {
+        margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    }  
+   
+    
+</style>
