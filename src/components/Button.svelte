@@ -3,7 +3,7 @@
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
     
-    let expanded = false;
+    export let expanded = false;
     function toggleOpen() {
         expanded = !expanded;
         dispatch("toggle", expanded);
